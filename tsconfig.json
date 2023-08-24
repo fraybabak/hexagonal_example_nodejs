@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "esModuleInterop": true,
+        "target": "ES2019",
+        "allowJs": false,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "strict": true,
+        "strictFunctionTypes": false,
+        "noImplicitThis": false,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "outDir": "dist",
+        "types": [
+            "reflect-metadata",
+            "jest"
+        ],
+        "strictPropertyInitialization": false,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*",
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
