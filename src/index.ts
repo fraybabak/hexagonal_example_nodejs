@@ -1,6 +1,8 @@
 import express from 'express'
 import router from './UI/router'
 import { httpLogger } from './logger'
+import dotenv from 'dotenv'
+dotenv.config()
 const app = express()
 app.use(httpLogger);
 app.use(express.json())
@@ -13,7 +15,7 @@ app.get('/', (req, res) => {
 app.use(router)
 
 
-const port = 3000
+const port = process.env.SERVER_PORT || 3000
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

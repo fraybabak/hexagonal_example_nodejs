@@ -6,7 +6,7 @@ import { UserMapper } from '../mappers/UserMapper';
 
 @injectable()
 export class UserCreateController {
-    userMapper: typeof UserMapper
+    private userMapper: typeof UserMapper
     constructor(@inject('CreateUserUseCase') private userCreate: CreateUserPort) {
         this.userCreate = userCreate
         this.userMapper = UserMapper
