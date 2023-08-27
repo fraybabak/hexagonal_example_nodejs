@@ -10,15 +10,14 @@ declare module 'express-serve-static-core' {
 }
 export const authMiddleware = async (req: Request, res: Response, next: any) => {
     try {
-        const token = req.headers.authorization?.split('jwt')[1]
+        const token = req.headers.authorization?.split('jwt')[1].trim()
         if (!token) {
-            throw new Error('Token not found')
+            return res.status(401).json({ error: "Credentials are not provided" })
         }
-        const user = await authUserController.authenticate(token)
-        req.user = user
+        req.user = await authUserController.authenticate(token)
 
         next()
     } catch (error: any) {
-        return res.status(error.status).json({ error: error.message })
+        return res.status(401).json({ error: error.message })
     }
 }

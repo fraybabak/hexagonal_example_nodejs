@@ -33,7 +33,7 @@ export class AuthenticateUserUseCase implements AuthenticateUserPort {
             }
             let isPasswordValid = await this.comparePassword(password, user.password)
             if (!isPasswordValid) {
-                throw new UnCaughtError('invalid password', 401)
+                throw new UnCaughtError('Invalid provided email or password', 401)
             }
             let token = await this.generateToken({ id: user.id ? user.id : "" }) // tslint:disable-line: no-string-literal  
             return token
