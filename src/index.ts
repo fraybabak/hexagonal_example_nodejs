@@ -1,5 +1,5 @@
 import express from 'express'
-import router from './UI/router'
+import router from './UI/routers/router'
 import { httpLogger } from './logger'
 import dotenv from 'dotenv'
 dotenv.config()
