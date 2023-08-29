@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.ts",
     "scripts": {
-        "test": "tsc && jest"
+        "test": "tsc && jest",
+        "start": "ts-node src/index.ts"
     },
     "author": "fraybabak",
     "license": "ISC",
