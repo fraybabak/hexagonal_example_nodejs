@@ -19,15 +19,15 @@ export class AuthenticateUserUseCase implements AuthenticateUserPort {
     generateToken: typeof generateToken;
     verifyToken: typeof verifyToken;
 
-    constructor(@inject('FindUserUseCase') private userFind: FindUserPort) {
-        this.userFind = userFind
+    constructor(@inject('FindUserUseCase') private findUserUseCase: FindUserPort) {
+        this.findUserUseCase = findUserUseCase
         this.comparePassword = comparePassword
         this.generateToken = generateToken
         this.verifyToken = verifyToken
     }
     async login(email: string, password: string) {
         try {
-            let user = await this.userFind.findByEmail(email)
+            let user = await this.findUserUseCase.findByEmail(email)
             if (!user) {
                 throw new NotFoundError('user not found')
             }
@@ -46,7 +46,7 @@ export class AuthenticateUserUseCase implements AuthenticateUserPort {
     async authenticate(token: string): Promise<IUser> {
         try {
             let decoded = await this.verifyToken(token)
-            let user = await this.userFind.findById((decoded.payload as { id: string }).id)
+            let user = await this.findUserUseCase.findById((decoded.payload as { id: string }).id)
             if (!user) {
                 throw new NotFoundError('user not found', 404)
             }
