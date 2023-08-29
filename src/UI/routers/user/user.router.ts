@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { userCreateController, authUserController } from "../../../DiContainer"
 import { authMiddleware } from "../../middleware/auth"
-import { registerUserValidate } from "../../validators/user/registerUser"
+import { registerUserValidation } from "../../validators/user/registerUser"
 
 const router = Router()
 
@@ -15,7 +15,7 @@ router.post('/signin', async (req, res) => {
 })
 router.post('/signup', async (req, res) => {
     try {
-        await registerUserValidate(req.body)
+        await registerUserValidation(req.body)
         return res.status(201).json(await userCreateController.create(req.body))
     } catch (error: any) {
 

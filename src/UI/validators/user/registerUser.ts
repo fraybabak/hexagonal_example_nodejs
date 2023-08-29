@@ -4,9 +4,7 @@ import {
     validate,
 } from 'class-validator';
 
-import { plainToClass } from 'class-transformer';
-import { UnCaughtError } from '../../../Errors/Uncaught';
-
+import { ValidateObject } from '../bodyTransformer';
 
 export class RegisterUser {
     @Length(3, 20)
@@ -20,19 +18,8 @@ export class RegisterUser {
 }
 
 
-export async function registerUserValidate(body: any): Promise<Boolean> {
-    const user = plainToClass(RegisterUser, body);
-    const errors = await validate(user);
-    if (errors.length > 0) {
-        const errorMessages: { [key: string]: string[] } = {};
-        errors.forEach((error: any) => {
-            errorMessages[error.property] = Object.values(error.constraints || {});
-        });
 
-        throw new UnCaughtError(JSON.stringify(errorMessages), 400);
-
-    }
-    return true;
+export const registerUserValidation = async (body: any): Promise<Boolean> => {
+    return ValidateObject(body, RegisterUser)
 }
-
 
