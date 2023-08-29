@@ -1,23 +1,31 @@
-
+import { User } from "../../application/User/domain/User";
 
 export class FakeUserRepository {
+    private users: User[] = [
+        new User(
+            "test",
+            "test@test.com",
+            "123456",
+            "1")
+
+
+    ];
     async create(user: any): Promise<any> {
-        return user;
+        const existingUser = this.users.find(u => u.email === user.email);
+        if (existingUser) {
+            throw new Error("Email already taken");
+        }
+        const id = (this.users.length + 1).toString();
+        let newUser = new User(user.name, user.email, user.password, id)
+        this.users.push(newUser);
+        return newUser;
     }
     async findById(id: string) {
-        return {
-            id: id,
-            email: "test@test.com",
-            password: "123456",
-            name: "some_name"
-        }
+        let user = this.users.find(u => u.id === id);
+        return user ? user : null
     }
     async findByEmail(email: string) {
-        return {
-            id: "1",
-            email: email,
-            password: "123456",
-            name: "some_name"
-        }
+        let user = this.users.find(u => u.email === email);
+        return user ? user : null
     }
 }
