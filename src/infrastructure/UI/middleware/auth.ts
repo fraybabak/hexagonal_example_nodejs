@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { authUserController } from "../../DiContainer";
-import { IUser } from "../../application/User/domain/IUser";
+import { authUserController } from "../../../DiContainer";
+import { IUser } from "../../../application/User/domain/IUser";
 
 
 declare module 'express-serve-static-core' {

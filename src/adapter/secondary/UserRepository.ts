@@ -5,7 +5,7 @@ import { inject, injectable } from 'tsyringe';
 import { UserRepositoryPort } from '../../application/User/port/secondary/UserRepositoryPort';
 import { IUser } from '../../application/User/domain/IUser';
 import { User } from '../../application/User/domain/User';
-import db from '../../infrastructure/db'
+import db from '../../infrastructure/db/db'
 import { PrismaClient } from '@prisma/client';
 import { UnCaughtError } from "../../Errors/Uncaught"
 

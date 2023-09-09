@@ -3,7 +3,7 @@ import {
     validate,
 } from 'class-validator';
 
-import { UnCaughtError } from '../../Errors/Uncaught';
+import { UnCaughtError } from '../../../Errors/Uncaught';
 
 
 

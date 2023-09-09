@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { userCreateController, authUserController } from "../../../DiContainer"
+import { userCreateController, authUserController } from "../../../../DiContainer"
 import { authMiddleware } from "../../middleware/auth"
 import { registerUserValidation } from "../../validators/user/registerUser"
 

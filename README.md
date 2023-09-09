@@ -23,9 +23,9 @@ pre-requisites:
 2. Run `npm install`
 
 
-3. cd into the `src/infrastructure` folder 
+3. cd into the `src/infrastructure/db` folder 
 ```
-cd src/infrastructure
+cd src/infrastructure/db
 
 npx prisma migrate dev --name init
 ```
