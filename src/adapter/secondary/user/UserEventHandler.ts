@@ -2,10 +2,10 @@ import { EventEmitter } from 'events';
 import "reflect-metadata";
 
 import { inject, injectable } from "tsyringe";
-import { BaseEventHandler } from "./events/BaseEventHandler";
+import { BaseEventHandler } from "../events/BaseEventHandler";
 
-import { UserEventHandlerPort } from "../../application/User/port/secondary/UserEventHandlerPort";
-import { IUserEvent } from "../../application/User/domain/UserEvent";
+import { UserEventHandlerPort } from "../../../application/User/port/secondary/UserEventHandlerPort";
+import { IUserEvent } from "../../../application/User/domain/UserEvent";
 
 @injectable()
 export class UserEventhandler implements UserEventHandlerPort {

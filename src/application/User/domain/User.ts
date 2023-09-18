@@ -1,5 +1,5 @@
 import { UserEmail, UserId, UserName, UserPassword, IUser } from "./IUser";
-import { IUserEvent, UserCreatedEvent } from "./UserEvent";
+import { IUserEvent } from "./UserEvent";
 
 export class User implements IUser {
     public id?: UserId;

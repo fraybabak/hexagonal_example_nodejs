@@ -1,4 +1,6 @@
-export interface IUserEvent {
+import { IEvent } from "../../../lib/Event";
+
+export interface IUserEvent extends IEvent {
     type: string;
     payload: { id: string };
 }
