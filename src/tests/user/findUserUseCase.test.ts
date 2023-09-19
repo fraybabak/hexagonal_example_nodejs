@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { UserRepositoryPort } from '../application/User/port/secondary/UserRepositoryPort';
-import { FakeUserRepository } from "./fakes/fakeUserRepository";
-import { FindUserUseCase } from "../application/User/usecases/findUser";
+import { UserRepositoryPort } from '../../application/User/port/secondary/UserRepositoryPort';
+import { FakeUserRepository } from "../fakes/fakeUserRepository";
+import { FindUserUseCase } from "../../application/User/usecases/findUser";
 
 
 

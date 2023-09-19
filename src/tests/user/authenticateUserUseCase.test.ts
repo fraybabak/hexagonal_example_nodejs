@@ -1,10 +1,10 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { UserRepositoryPort } from '../application/User/port/secondary/UserRepositoryPort';
-import { FakeUserRepository } from "./fakes/fakeUserRepository";
-import { FindUserUseCase } from "../application/User/usecases/findUser";
-import { AuthenticateUserUseCase } from "../application/User/usecases/authenticateUser";
-import { generateToken } from "../application/helpers/jwt_utility";
+import { UserRepositoryPort } from '../../application/User/port/secondary/UserRepositoryPort';
+import { FakeUserRepository } from "../fakes/fakeUserRepository";
+import { FindUserUseCase } from "../../application/User/usecases/findUser";
+import { AuthenticateUserUseCase } from "../../application/User/usecases/authenticateUser";
+import { generateToken } from "../../application/helpers/jwt_utility";
 
 
 describe('Authenticate User', () => {

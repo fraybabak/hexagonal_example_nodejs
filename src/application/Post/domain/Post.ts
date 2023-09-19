@@ -12,11 +12,25 @@ export class Post implements IPost {
     public deletedAt?: Date;
     public events: IPostEvent[] = [];
 
-    constructor(title: string, content: string, authorId: string, id?: string) {
-        this.id = id;
+    constructor(title: string, content: string, authorId: string, id?: string, createdAt?: Date, updatedAt?: Date, deletedAt?: Date) {
+        if (id) {
+            this.id = id;
+        }
+        if (createdAt) {
+            this.createdAt = createdAt;
+        }
+        if (updatedAt) {
+            this.updatedAt = updatedAt;
+        }
+        if (deletedAt) {
+            this.deletedAt = deletedAt;
+        }
         this.title = title;
         this.content = content;
         this.authorId = authorId;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.deletedAt = deletedAt;
     }
     async domainEvents(): Promise<IPostEvent[]> {
         return this.events;

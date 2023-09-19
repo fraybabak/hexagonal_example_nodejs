@@ -11,7 +11,8 @@ import { CreatePostPort } from "../port/primary/CreatePostPort";
 import { PostRepositoryPort } from "../port/secondary/PostRepositoryPort";
 import { UnCaughtError } from "../../../Errors/Uncaught"
 import { PostCreatedEvent } from "../domain/PostEvent";
-import uuid from "uuid";
+import { v4 as uuidv4 } from 'uuid';
+
 
 import { PostEventHandlerPort } from "../port/secondary/PostEventHandlerPort";
 
@@ -23,14 +24,15 @@ export class CreatePostUseCase implements CreatePostPort {
     }
     async create(create: IPostCreate): Promise<IPost> {
         try {
+            const post = new Post(create.title, create.content, create.authorId, uuidv4(), new Date(), new Date())
 
             const persist = await this.postRepository.create({
-                id: uuid.v4(),
-                title: create.title,
-                content: create.content,
-                authorId: create.authorId,
-                createdAt: new Date(),
-                updatedAt: new Date(),
+                id: post.id as string,
+                title: post.title,
+                content: post.content,
+                authorId: post.authorId,
+                createdAt: post.createdAt as Date,
+                updatedAt: post.updatedAt as Date
             });
             if (persist.id) {
                 persist.addEvent(new PostCreatedEvent(persist.id));

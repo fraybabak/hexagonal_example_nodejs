@@ -1,11 +1,11 @@
 import "reflect-metadata";
 import { container } from "tsyringe";
-import { UserRepositoryPort } from '../application/User/port/secondary/UserRepositoryPort';
-import { FakeUserRepository } from "./fakes/fakeUserRepository";
-import { CreateUserUseCase } from "../application/User/usecases/createUser";
-import { UserEventhandler } from "../adapter/secondary/user/UserEventHandler";
-import { UserEventHandlerPort } from "../application/User/port/secondary/UserEventHandlerPort";
-import { BaseEventHandler } from "../adapter/secondary/events/BaseEventHandler";
+import { UserRepositoryPort } from '../../application/User/port/secondary/UserRepositoryPort';
+import { FakeUserRepository } from "../fakes/fakeUserRepository";
+import { CreateUserUseCase } from "../../application/User/usecases/createUser";
+import { UserEventhandler } from "../../adapter/secondary/user/UserEventHandler";
+import { UserEventHandlerPort } from "../../application/User/port/secondary/UserEventHandlerPort";
+import { BaseEventHandler } from "../../adapter/secondary/events/BaseEventHandler";
 
 
 describe('Create User', () => {

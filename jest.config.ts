@@ -6,6 +6,9 @@ const config: Config = {
         // Enable debugging by adding the --inspect flag
         nodeOptions: ['--inspect', '--enable-source-maps'],
     },
+    transform: {
+        '^.+\\.tsx?$': 'ts-jest',
+    },
     testEnvironment: 'node',
     detectOpenHandles: true,
     testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',

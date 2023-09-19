@@ -11,6 +11,7 @@ import { UnCaughtError } from "../../../Errors/Uncaught"
 import { hashPassword } from "../../helpers/password_utility";
 import { UserCreatedEvent } from "../domain/UserEvent";
 import { UserEventHandlerPort } from "../port/secondary/UserEventHandlerPort";
+import { v4 as uuidv4 } from 'uuid';
 
 @injectable()
 export class CreateUserUseCase implements CreateUserPort {
@@ -21,7 +22,7 @@ export class CreateUserUseCase implements CreateUserPort {
     }
     async create(name: string, email: string, password: string): Promise<IUser> {
         try {
-            const user = new User(name, email, await this.hashPassword(password));
+            const user = new User(name, email, await this.hashPassword(password), uuidv4());
             const persist = await this.userRepository.create(user);
             if (persist.id) {
                 user.addEvent(new UserCreatedEvent(persist.id));

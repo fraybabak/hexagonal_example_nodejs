@@ -29,7 +29,8 @@ export class UserRepository implements UserRepositoryPort {
                 data: {
                     name: user.name,
                     email: user.email,
-                    password: user.password
+                    password: user.password,
+                    id: user.id
                 }
             });
             return new User(newUser.name, newUser.email, newUser.password, newUser.id);
