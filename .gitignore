@@ -133,3 +133,8 @@ dist
 dist
 output.txt
 *output.txt
+*.db
+*.sqlite
+*db-journal
+migrations*
+migrations
