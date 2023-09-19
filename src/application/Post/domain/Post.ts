@@ -2,6 +2,7 @@ import { UserId } from "../../../application/User/domain/IUser";
 import { IPost, PostId, PostTitle, PostContent } from "./IPost";
 import { IPostEvent } from "./PostEvent";
 
+
 export class Post implements IPost {
     public id?: PostId;
     public title: PostTitle;

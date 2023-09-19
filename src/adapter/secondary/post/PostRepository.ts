@@ -8,6 +8,7 @@ import db from '../../../infrastructure/db/db'
 import { PrismaClient } from '@prisma/client';
 import { UnCaughtError } from "../../../Errors/Uncaught"
 import { NotFoundError } from '../../../Errors/NotFound';
+import { Pretify } from "../../../lib/types";
 
 @injectable()
 export class PostRepository implements PostRepositoryPort {
@@ -17,7 +18,7 @@ export class PostRepository implements PostRepositoryPort {
         this.db = db;
         this.model = this.db.post;
     }
-    async create(post: IPostCreateRepository) {
+    async create(post: Pretify<IPostCreateRepository>) {
         try {
             let newPost = await this.model.create({
                 data: {

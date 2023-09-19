@@ -24,7 +24,9 @@ describe('Create User', () => {
             resolve(event);
         }));
         const createUserUseCase = new CreateUserUseCase(userRepository, userEventHandler);
-        const user = await createUserUseCase.create("test", "test1@test.com", "123456");
+        const user = await createUserUseCase.create({
+            "name": "test", "email": "test1@test.com", "password": "123456"
+        });
         const event = await eventPromise;
         expect(user).toHaveProperty("name");
         expect(user).toHaveProperty("email");
@@ -37,6 +39,8 @@ describe('Create User', () => {
     it('Should not create a user with an existing email', async () => {
 
         const createUserUseCase = new CreateUserUseCase(userRepository, userEventHandler);
-        await expect(createUserUseCase.create("test", "test@test.com", "123456")).rejects.toThrow("Email already taken");
+        await expect(createUserUseCase.create({
+            "name": "test", "email": "test@test.com", "password": "123456"
+        })).rejects.toThrow("Email already taken");
     });
 });

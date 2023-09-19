@@ -1,7 +1,7 @@
 import { IPostEvent } from "../../domain/PostEvent";
-
+import { Pretify } from "../../../../lib/types";
 
 
 export interface PostEventHandlerPort {
-    handle(event: IPostEvent): void;
+    handle(event: Pretify<IPostEvent>): void;
 }

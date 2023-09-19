@@ -1,8 +1,8 @@
 import { IPostCreate, IPost } from "../../domain/IPost";
 
 
-
+import { Pretify } from "../../../../lib/types";
 
 export interface CreatePostPort {
-    create(post: IPostCreate): Promise<IPost>;
+    create(post: Pretify<IPostCreate>): Promise<IPost>;
 }

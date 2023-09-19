@@ -19,7 +19,11 @@ export class UserCreateController {
     }): Promise<any> {
         try {
             const userDTO = this.userMapper.toDomain(body)
-            let user = await this.userCreate.create(userDTO.name, userDTO.email, userDTO.password)
+            let user = await this.userCreate.create({
+                name: userDTO.name,
+                password: userDTO.password,
+                email: userDTO.email
+            })
             return this.userMapper.toUI(user)
         } catch (error) {
             throw error

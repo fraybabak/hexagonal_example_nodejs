@@ -12,6 +12,7 @@ import { PostRepositoryPort } from "../port/secondary/PostRepositoryPort";
 import { UnCaughtError } from "../../../Errors/Uncaught"
 import { PostCreatedEvent } from "../domain/PostEvent";
 import { v4 as uuidv4 } from 'uuid';
+import { Pretify } from "../../../lib/types"
 
 
 import { PostEventHandlerPort } from "../port/secondary/PostEventHandlerPort";
@@ -22,7 +23,7 @@ export class CreatePostUseCase implements CreatePostPort {
     constructor(@inject("PostRepository") private postRepository: PostRepositoryPort, @inject('PostEventHandler') private postEventHandler: PostEventHandlerPort) {
         this.postRepository = postRepository;
     }
-    async create(create: IPostCreate): Promise<IPost> {
+    async create(create: Pretify<IPostCreate>): Promise<Post> {
         try {
             const post = new Post(create.title, create.content, create.authorId, uuidv4(), new Date(), new Date())
 

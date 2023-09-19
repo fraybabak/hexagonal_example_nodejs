@@ -10,3 +10,9 @@ export interface IUser {
     email: UserEmail;
     password: UserPassword;
 }
+
+export interface IUserCreate {
+    name: UserName;
+    email: UserEmail;
+    password: UserPassword;
+}

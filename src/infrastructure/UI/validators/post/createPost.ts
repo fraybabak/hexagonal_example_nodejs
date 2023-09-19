@@ -19,3 +19,4 @@ export class CreatePost {
 export const createPostValidation = async (body: any): Promise<Boolean> => {
     return ValidateObject(body, CreatePost)
 }
+

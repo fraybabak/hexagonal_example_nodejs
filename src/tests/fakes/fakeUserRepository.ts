@@ -6,7 +6,9 @@ export class FakeUserRepository {
             "test",
             "test@test.com",
             "123456",
-            "1")
+            "1"
+
+        )
 
 
     ];
@@ -15,8 +17,7 @@ export class FakeUserRepository {
         if (existingUser) {
             throw new Error("Email already taken");
         }
-        const id = (this.users.length + 1).toString();
-        let newUser = new User(user.name, user.email, user.password, id)
+        let newUser = new User(user.name, user.email, user.password, user.id)
         this.users.push(newUser);
         return newUser;
     }

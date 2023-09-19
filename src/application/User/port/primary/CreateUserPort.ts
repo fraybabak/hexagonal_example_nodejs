@@ -1,6 +1,6 @@
-import { IUser } from "../../domain/IUser";
-
+import { IUser, IUserCreate } from "../../domain/IUser";
+import { Pretify } from "../../../../lib/types";
 
 export interface CreateUserPort {
-    create(name: string, email: string, password: string): Promise<IUser>;
+    create(user: Pretify<IUserCreate>): Promise<IUser>;
 }
