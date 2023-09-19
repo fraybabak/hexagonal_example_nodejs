@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { inject, injectable } from 'tsyringe';
-import { AuthenticateUserPort } from "../../application/User/port/primary/AuthenticateUserPort"
-import { UserMapper } from '../mappers/UserMapper';
-import { UnCaughtError } from '../../Errors/Uncaught';
+import { AuthenticateUserPort } from "../../../application/User/port/primary/AuthenticateUserPort"
+import { UserMapper } from '../../mappers/UserMapper';
+import { UnCaughtError } from '../../../Errors/Uncaught';
 
 @injectable()
 export class AuthUserController {

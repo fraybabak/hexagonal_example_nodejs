@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { inject, injectable } from 'tsyringe';
-import { CreateUserPort } from "../../application/User/port/primary/CreateUserPort"
-import { IUser } from '../../application/User/domain/IUser';
-import { UserMapper } from '../mappers/UserMapper';
+import { CreateUserPort } from "../../../application/User/port/primary/CreateUserPort"
+import { IUser } from '../../../application/User/domain/IUser';
+import { UserMapper } from '../../mappers/UserMapper';
 
 @injectable()
 export class UserCreateController {
