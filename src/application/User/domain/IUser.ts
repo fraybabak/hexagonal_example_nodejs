@@ -16,3 +16,9 @@ export interface IUserCreate {
     email: UserEmail;
     password: UserPassword;
 }
+
+export interface IUserToUI {
+    id: UserId;
+    name: UserName;
+    email: UserEmail;
+}

@@ -19,8 +19,18 @@ export interface IPostCreate {
     content: PostContent;
     authorId: UserId;
 }
+
 export interface IPostCreateRepository extends IPostCreate {
     id: PostId;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+export interface IPostToUI {
+    id: PostId;
+    title: PostTitle;
+    content: PostContent;
+    authorId: UserId;
     createdAt: Date;
     updatedAt: Date;
 }

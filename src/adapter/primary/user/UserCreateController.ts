@@ -24,7 +24,7 @@ export class UserCreateController {
                 password: userDTO.password,
                 email: userDTO.email
             })
-            return this.userMapper.toUI(user)
+            return user
         } catch (error) {
             throw error
         }

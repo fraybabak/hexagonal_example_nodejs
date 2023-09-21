@@ -30,7 +30,6 @@ describe('Create User', () => {
         const event = await eventPromise;
         expect(user).toHaveProperty("name");
         expect(user).toHaveProperty("email");
-        expect(user).toHaveProperty("password");
         expect(user).toHaveProperty("id");
         expect(event).toHaveProperty("id");
 
