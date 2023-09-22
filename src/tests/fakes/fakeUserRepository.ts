@@ -5,7 +5,7 @@ export class FakeUserRepository {
         new User(
             "test",
             "test@test.com",
-            "123456",
+            "12336wqw456",
             "1"
 
         )

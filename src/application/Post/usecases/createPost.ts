@@ -41,14 +41,7 @@ export class CreatePostUseCase implements CreatePostPort {
                 this.postEventHandler.handle(post.events[0]);
 
             }
-            return PostMapper.toUI({
-                id: post.id as string,
-                title: post.title,
-                content: post.content,
-                authorId: post.authorId,
-                createdAt: post.createdAt as Date,
-                updatedAt: post.updatedAt as Date
-            });
+            return PostMapper.toUI(persist);
 
         } catch (error: any) {
             throw new UnCaughtError(error.message)

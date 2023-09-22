@@ -32,6 +32,13 @@ export class Post implements IPost {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
+        // validate 
+        if (this.title.length < 5) {
+            throw new Error("Title must be at least 5 characters long");
+        }
+        if (this.content.length < 10) {
+            throw new Error("Content must be at least 8 characters long");
+        }
     }
     async domainEvents(): Promise<IPostEvent[]> {
         return this.events;

@@ -8,8 +8,8 @@ export class FakePostRepository implements PostRepositoryPort {
     private posts = [
         {
             id: '1',
-            title: 'title',
-            content: 'content',
+            title: 'this is my second post',
+            content: 'the second post content',
             authorId: '1',
             createdAt: new Date(),
             updatedAt: new Date(),

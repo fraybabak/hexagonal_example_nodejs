@@ -25,7 +25,7 @@ describe('Create User', () => {
         }));
         const createUserUseCase = new CreateUserUseCase(userRepository, userEventHandler);
         const user = await createUserUseCase.create({
-            "name": "test", "email": "test1@test.com", "password": "123456"
+            "name": "test", "email": "test1@test.com", "password": "12345678"
         });
         const event = await eventPromise;
         expect(user).toHaveProperty("name");
@@ -39,7 +39,7 @@ describe('Create User', () => {
 
         const createUserUseCase = new CreateUserUseCase(userRepository, userEventHandler);
         await expect(createUserUseCase.create({
-            "name": "test", "email": "test@test.com", "password": "123456"
+            "name": "test", "email": "test@test.com", "password": "12345826"
         })).rejects.toThrow("Email already taken");
     });
 });

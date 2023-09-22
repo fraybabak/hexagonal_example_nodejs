@@ -26,8 +26,8 @@ describe('Create Post', () => {
         }));
         const createPostUseCase = new CreatePostUseCase(postRepository, postEventHandler);
         const post = await createPostUseCase.create({
-            title: "test",
-            content: "test",
+            title: "test1",
+            content: "this is my new post",
             authorId: "1"
         });
         const event = await eventPromise;

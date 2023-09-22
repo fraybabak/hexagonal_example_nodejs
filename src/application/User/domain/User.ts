@@ -13,6 +13,15 @@ export class User implements IUser {
         this.name = name;
         this.email = email;
         this.password = password;
+        if (this.name.length < 4) {
+            throw new Error("Name must be at least 4 characters long");
+        }
+        if (this.password.length < 8) {
+            throw new Error("Password must be at least 8 characters long");
+        }
+        if (!this.email.includes("@")) {
+            throw new Error("Email must be valid");
+        }
 
     }
     async domainEvents(): Promise<IUserEvent[]> {
